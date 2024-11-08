@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+{% block body_block %} 
+<h2>Account Balance</h2>
+<p>Balance: {{ account.balance }}</p>
+
+<h3>Transaction History</h3>
+<ul>
+    {% for transaction in transactions %}
+        <li>{{ transaction.transaction_type }} of {{ transaction.amount }} on {{ transaction.timestamp }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
