@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+{% block body_block %} 
+<h2>Welcome {{ account.user.username }}</h2>
+<p>Balance: ${{ account.balance }}</p>
+<h3>Transactions</h3>
+<ul>
+    {% for transaction in transactions %}
+        <li>{{ transaction.created_at }} - {{ transaction.transaction_type }} - ${{ transaction.amount }}</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'deposit' %}">Deposit</a>
+<a href="{% url 'transfer' %}">Transfer</a>
+<a href="{% url 'withdraw' %}" class="btn btn-danger">Withdraw</a>
+
+{% endblock %}
